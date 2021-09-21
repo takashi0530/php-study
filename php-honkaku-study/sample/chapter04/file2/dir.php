@@ -11,9 +11,7 @@
     $dir = new DirectoryIterator('./files');
 
     foreach ($dir as $file) {
-
         if ($file->isDot()) {
-            pr('dotです');
             continue;
         }
 

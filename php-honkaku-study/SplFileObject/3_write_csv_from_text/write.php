@@ -43,6 +43,7 @@ $items = [
     ["1行目\n\"2行目\"\n3行目", '30,000'],
 ];
 
+// カラのgenerated-utf.csvファイルに配列のデータを書き込む
 foreach ($items as $item) {
     // 1行ずつ書き込む
     $csv->fputcsv($item);
@@ -74,6 +75,7 @@ function convertEncoding(string $from_file, string $to_file, string $from_encodi
     pr(file_get_contents($from_file),1,1);  //元データの中身（SJIS-win） ※文字化けしてる
     pr(mb_convert_encoding(file_get_contents($from_file), $to_encoding, $from_encoding),1,1);  //UTF-8に変換後の中身 ※文字化けしていない
 
+    // データの書き込み   files/generated.csv  に 書き込む
     file_put_contents(
         $to_file,   // データを書き込むファイルへのパス(files/generated.csv) ※存在しない場合は作成する
         mb_convert_encoding(file_get_contents($from_file), $to_encoding, $from_encoding)  // 書き込むデータ(SJIS-winからUTF-8に変換した元データ)

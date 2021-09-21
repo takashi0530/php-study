@@ -40,6 +40,9 @@ foreach ($dir as $key => $file) {
         $type .= '(シンボリックリンクです)';
     }
 
+    // SplFileInfoクラスの各種メソッドも使用できる
+    pr(date('Y-m-d H:i:s', $file->getATime()), '$file->getATime()');
+
     echo $type . '：' . $file->getFileName() . '<br><br><br>';
 }
 
